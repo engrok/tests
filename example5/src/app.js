@@ -6,8 +6,12 @@ app.get('/', function (request, response) {
     response.sendFile(path.join(__dirname, '/index.html'));
 });
 
+app.get('/success', function (request, response) {
+    response.sendFile(path.join(__dirname, '/success.html'));
+});
+
 app.post('/action', function (request, response) {
-    response.send("Submitted!");
+    response.redirect('/success');
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
